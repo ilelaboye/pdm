@@ -30,6 +30,7 @@
         class="list-group-item list-group-item-action list-group-item-light px-3"
         :to="{ name: 'pending-requests' }"
         :class="$route.name == 'pending-requests' ? 'active' : ''"
+        v-if="user.username != 'vendor1'"
       >
         <i class="fa fa-table"></i>
         <span>Pending Requests</span>
@@ -38,6 +39,7 @@
         class="list-group-item list-group-item-action list-group-item-light px-3"
         :to="{ name: 'vendors' }"
         :class="$route.name == 'vendors' ? 'active' : ''"
+        v-if="user.username != 'vendor1'"
       >
         <i class="fas fa-users"></i>
         <span>Vendors</span>
