@@ -15,7 +15,7 @@
         :class="$route.name == 'items' ? 'active' : ''"
       >
         <i class="fa fa-building"></i>
-        <span>Items</span>
+        <span>Materials</span>
       </router-link>
       <router-link
         class="list-group-item list-group-item-action list-group-item-light px-3"
@@ -30,20 +30,20 @@
         class="list-group-item list-group-item-action list-group-item-light px-3"
         :to="{ name: 'pending-requests' }"
         :class="$route.name == 'pending-requests' ? 'active' : ''"
-        v-if="user.username != 'vendor1'"
+        v-if="user.user.username != 'vendor1'"
       >
         <i class="fa fa-table"></i>
         <span>Pending Requests</span>
       </router-link>
-      <router-link
+      <!-- <router-link
         class="list-group-item list-group-item-action list-group-item-light px-3"
         :to="{ name: 'vendors' }"
         :class="$route.name == 'vendors' ? 'active' : ''"
-        v-if="user.username != 'vendor1'"
+        v-if="user.user.username != 'vendor1'"
       >
         <i class="fas fa-users"></i>
-        <span>Vendors</span>
-      </router-link>
+        <span>Suppliers</span>
+      </router-link> -->
       <a
         class="list-group-item list-group-item-action list-group-item-light px-3"
         href="javascript:void()"
@@ -74,7 +74,9 @@
         this.$store.commit("logout");
       },
     },
-    created() {},
+    created() {
+      console.log(this.user);
+    },
   };
 </script>
 <style scoped lang="scss">

@@ -33,7 +33,7 @@
           <table class="table">
             <thead>
               <tr>
-                <th>Vendor</th>
+                <th>Supplier</th>
                 <th>Old Price</th>
                 <th>New Price</th>
                 <th>Approver</th>

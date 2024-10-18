@@ -13,7 +13,7 @@
               <thead>
                 <tr>
                   <th>Name</th>
-                  <th>Vendor</th>
+                  <th>Supplier</th>
                   <th>Price</th>
                   <th>Date</th>
                   <th>Last Price Update</th>
@@ -40,6 +40,7 @@
                         ><i class="fa fa-eye"></i
                       ></router-link>
                       <button
+                        v-if="$store.state.user.user.username == 'vendor1'"
                         class="btn btn-primary ms-1"
                         data-bs-toggle="modal"
                         data-bs-target="#changePrice"

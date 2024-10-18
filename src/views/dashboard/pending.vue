@@ -12,11 +12,11 @@
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>Item</th>
+                  <th>Material</th>
                   <th>Old Price</th>
                   <th>New Price</th>
                   <th>Approver</th>
-                  <th>Vendor</th>
+                  <th>Supplier</th>
                   <th>Date</th>
                   <th></th>
                 </tr>

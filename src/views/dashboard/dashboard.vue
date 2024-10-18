@@ -7,8 +7,8 @@
           <div class="card">
             <a href="javascript:void()" class="d-flex">
               <div class="stat-no">
-                <h6>0</h6>
-                <p class="text-muted">Items</p>
+                <h6>2</h6>
+                <p class="text-muted">Materials</p>
               </div>
             </a>
           </div>
@@ -17,8 +17,8 @@
           <div class="card">
             <a href="javascript:void()" class="d-flex">
               <div class="stat-no">
-                <h6>0</h6>
-                <p class="text-muted">Vendors</p>
+                <h6>1</h6>
+                <p class="text-muted">Supplier</p>
               </div>
             </a>
           </div>
