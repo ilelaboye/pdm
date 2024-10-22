@@ -17,6 +17,16 @@ const dashboardRoutes = [
     component: () => import("@/views/dashboard/item.vue"),
   },
   {
+    path: "/item/:id/change-price",
+    name: "changePrice",
+    component: () => import("@/views/dashboard/change.vue"),
+  },
+  {
+    path: "/item/:id/review-price",
+    name: "reviewPrice",
+    component: () => import("@/views/dashboard/review.vue"),
+  },
+  {
     path: "/requests",
     name: "requests",
     component: () => import("@/views/dashboard/requests.vue"),

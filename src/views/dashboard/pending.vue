@@ -13,8 +13,6 @@
               <thead>
                 <tr>
                   <th>Material</th>
-                  <th>Old Price</th>
-                  <th>New Price</th>
                   <th>Approver</th>
                   <th>Supplier</th>
                   <th>Date</th>
@@ -23,13 +21,8 @@
               </thead>
               <tbody v-if="requests.length > 0">
                 <tr v-for="(item, index) in requests" :key="index">
-                  <td>{{ item.item.name }}</td>
-                  <td>
-                    {{ item.item.currency }} {{ formatPrice(item.old_price) }}
-                  </td>
-                  <td>
-                    {{ item.item.currency }} {{ formatPrice(item.new_price) }}
-                  </td>
+                  <td>{{ item.item.tann_code }}</td>
+
                   <td>
                     {{ item.approver.username }}
                   </td>
@@ -41,28 +34,17 @@
                   </td>
                   <td>
                     <div class="d-flex">
-                      <button
-                        class="btn btn-success ms-1"
-                        @click.prevent="
-                          approveDeclineRequest(item.id, 'approve')
-                        "
+                      <a
+                        :href="`/item/${item.id}/review-price`"
+                        class="btn btn-primary fs-13"
+                        >Review</a
                       >
-                        Approve
-                      </button>
-                      <button
-                        class="btn btn-danger ms-1"
-                        @click.prevent="
-                          approveDeclineRequest(item.id, 'decline')
-                        "
-                      >
-                        Decline
-                      </button>
                     </div>
                   </td>
                 </tr>
               </tbody>
               <NoData
-                :data="{ colspan: 9, message: 'No available items' }"
+                :data="{ colspan: 9, message: 'No available requests' }"
                 v-else
               ></NoData>
             </table>

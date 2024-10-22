@@ -35,7 +35,7 @@
         <i class="fa fa-table"></i>
         <span>Pending Requests</span>
       </router-link>
-      <!-- <router-link
+      <router-link
         class="list-group-item list-group-item-action list-group-item-light px-3"
         :to="{ name: 'vendors' }"
         :class="$route.name == 'vendors' ? 'active' : ''"
@@ -43,7 +43,7 @@
       >
         <i class="fas fa-users"></i>
         <span>Suppliers</span>
-      </router-link> -->
+      </router-link>
       <a
         class="list-group-item list-group-item-action list-group-item-light px-3"
         href="javascript:void()"

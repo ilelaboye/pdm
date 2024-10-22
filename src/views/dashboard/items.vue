@@ -2,7 +2,7 @@
   <div class="orders px-2 py-4 mt-2" v-if="loaded">
     <div class="d-flex justify-content-between align-items-center">
       <div class="main-title">
-        <h6 class="mb-0">Items</h6>
+        <h6 class="mb-0">Materials</h6>
       </div>
     </div>
     <div class="orders-body mt-2">
@@ -12,42 +12,36 @@
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Supplier</th>
-                  <th>Price</th>
-                  <th>Date</th>
+                  <th>TANN code</th>
+                  <th>TANN description</th>
+                  <th>Op'Co</th>
                   <th>Last Price Update</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody v-if="items.length > 0">
                 <tr v-for="(item, index) in items" :key="index">
-                  <td>{{ item.name }}</td>
-                  <td>{{ item.vendor_name }}</td>
-                  <td>{{ item.currency }} {{ formatPrice(item.price) }}</td>
+                  <td>{{ item.tann_code }}</td>
+                  <td>{{ item.tann_descp }}</td>
+                  <td>{{ item.opco }}</td>
                   <td>
-                    {{ formatDateTime(item.created_at) }}
+                    {{ formatDateTime(item.updated_at) }}
                   </td>
                   <td>
-                    {{ formatDateTime(item.last_updated_at) }}
-                  </td>
-                  <td>
-                    <div class="d-flex">
+                    <div class="d-flex align-items-center">
                       <router-link
                         class="btn btn-view"
                         :to="{ name: 'itemView', params: { id: item.id } }"
                         style="height: fit-content"
                         ><i class="fa fa-eye"></i
                       ></router-link>
-                      <button
+                      <a
+                        :href="`item/${item.id}/change-price`"
                         v-if="$store.state.user.user.username == 'vendor1'"
-                        class="btn btn-primary ms-1"
-                        data-bs-toggle="modal"
-                        data-bs-target="#changePrice"
-                        @click="setItem(item)"
+                        class="btn btn-primary ms-1 fs-10"
                       >
                         Change Price
-                      </button>
+                      </a>
                     </div>
                   </td>
                 </tr>

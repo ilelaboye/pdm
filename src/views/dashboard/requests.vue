@@ -13,8 +13,6 @@
               <thead>
                 <tr>
                   <th>Material</th>
-                  <th>Old Price</th>
-                  <th>New Price</th>
                   <th>Approver</th>
                   <th>Status</th>
                   <th>Date</th>
@@ -22,11 +20,7 @@
               </thead>
               <tbody v-if="requests.length > 0">
                 <tr v-for="(item, index) in requests" :key="index">
-                  <td>{{ item.item.name }}</td>
-                  <td>{{ formatPrice(item.old_price) }}</td>
-                  <td>
-                    {{ item.item.currency }} {{ formatPrice(item.new_price) }}
-                  </td>
+                  <td>{{ item.item.tann_code }}</td>
                   <td>
                     {{ item.approver.username }}
                   </td>
@@ -49,6 +43,13 @@
                   </td>
                   <td>
                     {{ formatDateTime(item.created_at) }}
+                  </td>
+                  <td>
+                    <a
+                      :href="`/item/${item.id}/review-price`"
+                      class="btn btn-primary fs-12"
+                      >view</a
+                    >
                   </td>
                 </tr>
               </tbody>

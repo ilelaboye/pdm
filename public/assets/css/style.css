@@ -119,6 +119,15 @@ table tbody tr td {
 .table > :not(caption) > * > * {
   border-bottom-width: 0;
 }
+.fs-13 {
+  font-size: 13px;
+}
+.fs-12 {
+  font-size: 12px;
+}
+.fs-10 {
+  font-size: 12px;
+}
 /* .navbar,
 #sidebar-wrapper {
   padding-left: 15px;
