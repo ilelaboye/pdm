@@ -39,19 +39,34 @@
             <div class="col-sm-4">
               <div class="form-group">
                 <label for="" class="fs-13">&lt;50 bobb. 50%</label>
-                <input type="number" class="form-control" v-model="item.p1" />
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    >{{ price.p1 }} ->
+                  </span>
+                  <input type="number" class="form-control" v-model="item.p1" />
+                </div>
               </div>
             </div>
             <div class="col-sm-4">
               <div class="form-group">
                 <label for="" class="fs-13">&lt;99 bobb. 25.0%</label>
-                <input type="number" class="form-control" v-model="item.p2" />
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    >{{ price.p2 }} ->
+                  </span>
+                  <input type="number" class="form-control" v-model="item.p2" />
+                </div>
               </div>
             </div>
             <div class="col-sm-4">
               <div class="form-group">
                 <label for="" class="fs-13">&gt;100 bobb. 0.00%</label>
-                <input type="number" class="form-control" v-model="item.p3" />
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    >{{ price.p3 }} ->
+                  </span>
+                  <input type="number" class="form-control" v-model="item.p3" />
+                </div>
               </div>
             </div>
             <div class="col-12">
@@ -62,80 +77,125 @@
             <div class="col-sm-4">
               <div class="form-group">
                 <label for="" class="fs-13">&lt;50 bobb. 50%</label>
-                <input type="number" class="form-control" v-model="item.p4" />
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    >{{ price.p4 }} ->
+                  </span>
+                  <input type="number" class="form-control" v-model="item.p4" />
+                </div>
               </div>
             </div>
             <div class="col-sm-4">
               <div class="form-group">
                 <label for="" class="fs-13">&lt;50 bobb. 50%</label>
-                <input type="number" class="form-control" v-model="item.p5" />
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    >{{ price.p5 }} ->
+                  </span>
+                  <input type="number" class="form-control" v-model="item.p5" />
+                </div>
               </div>
             </div>
             <div class="col-sm-4">
               <div class="form-group">
                 <label for="" class="fs-13">&gt;50 bobb. 50%</label>
-                <input type="number" class="form-control" v-model="item.p6" />
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    >{{ price.p6 }} ->
+                  </span>
+                  <input type="number" class="form-control" v-model="item.p6" />
+                </div>
               </div>
             </div>
 
             <div class="col-sm-4">
               <div class="form-group">
                 <label for="" class="fs-13">USD/100m² FCA baseprice</label>
-                <input
-                  type="number"
-                  class="form-control"
-                  v-model="item.fca_baseprice"
-                />
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    >{{ price.fca_baseprice }} ->
+                  </span>
+                  <input
+                    type="number"
+                    class="form-control"
+                    v-model="item.fca_baseprice"
+                  />
+                </div>
               </div>
             </div>
             <div class="col-sm-4">
               <div class="form-group">
                 <label for="" class="fs-13">USD/100m² + BOB - Me</label>
-                <input
-                  type="number"
-                  class="form-control"
-                  v-model="item.bob_me"
-                />
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    >{{ price.bob_me }} ->
+                  </span>
+                  <input
+                    type="number"
+                    class="form-control"
+                    v-model="item.bob_me"
+                  />
+                </div>
               </div>
             </div>
             <div class="col-sm-4">
               <div class="form-group">
                 <label for="" class="fs-13">USD/1000 m Perfo</label>
-                <input
-                  type="number"
-                  class="form-control"
-                  v-model="item.perfo"
-                />
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    >{{ price.perfo }} ->
+                  </span>
+                  <input
+                    type="number"
+                    class="form-control"
+                    v-model="item.perfo"
+                  />
+                </div>
               </div>
             </div>
             <div class="col-sm-4">
               <div class="form-group">
                 <label for="" class="fs-13">Basis/Bob FCA</label>
-                <input
-                  type="number"
-                  class="form-control"
-                  v-model="item.bob_fca"
-                />
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    >{{ price.bob_fca }} ->
+                  </span>
+                  <input
+                    type="number"
+                    class="form-control"
+                    v-model="item.bob_fca"
+                  />
+                </div>
               </div>
             </div>
             <div class="col-sm-4">
               <div class="form-group">
                 <label for="" class="fs-13">Print price/bobb</label>
-                <input
-                  type="number"
-                  class="form-control"
-                  v-model="item.print_bobb_price"
-                />
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    >{{ price.print_bobb_price }} ->
+                  </span>
+                  <input
+                    type="number"
+                    class="form-control"
+                    v-model="item.print_bobb_price"
+                  />
+                </div>
               </div>
             </div>
             <div class="col-sm-4">
               <div class="form-group">
                 <label for="" class="fs-13">Perfo price/bobb.</label>
-                <input
-                  type="number"
-                  class="form-control"
-                  v-model="item.perfo_price_bobb"
-                />
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    >{{ price.perfo_price_bobb }} ->
+                  </span>
+                  <input
+                    type="number"
+                    class="form-control"
+                    v-model="item.perfo_price_bobb"
+                  />
+                </div>
               </div>
             </div>
             <div class="col-sm-4">
@@ -143,11 +203,17 @@
                 <label for="" class="fs-13"
                   >Print price/bobb. incl. payment extension</label
                 >
-                <input
-                  type="number"
-                  class="form-control"
-                  v-model="item.print_bobb_price_ext"
-                />
+
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    >{{ price.print_bobb_price_ext }} ->
+                  </span>
+                  <input
+                    type="number"
+                    class="form-control"
+                    v-model="item.print_bobb_price_ext"
+                  />
+                </div>
               </div>
             </div>
             <div class="col-sm-4">
@@ -155,21 +221,31 @@
                 <label for="" class="fs-13"
                   >Perfo price/bobb. incl. payment extension</label
                 >
-                <input
-                  type="number"
-                  class="form-control"
-                  v-model="item.perfo_bobb_price_ext"
-                />
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    >{{ price.perfo_bobb_price_ext }} ->
+                  </span>
+                  <input
+                    type="number"
+                    class="form-control"
+                    v-model="item.perfo_bobb_price_ext"
+                  />
+                </div>
               </div>
             </div>
             <div class="col-sm-4">
               <div class="form-group">
                 <label for="" class="fs-13">Freight price/bobb</label>
-                <input
-                  type="number"
-                  class="form-control"
-                  v-model="item.freight_price"
-                />
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    >{{ price.freight_price }} ->
+                  </span>
+                  <input
+                    type="number"
+                    class="form-control"
+                    v-model="item.freight_price"
+                  />
+                </div>
               </div>
             </div>
             <div class="col-sm-4">
@@ -177,11 +253,16 @@
                 <label for="" class="fs-13"
                   >Cost Contribution 1st and 2nd round</label
                 >
-                <input
-                  type="number"
-                  class="form-control"
-                  v-model="item.cost_contrib"
-                />
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    >{{ price.cost_contrib }} ->
+                  </span>
+                  <input
+                    type="number"
+                    class="form-control"
+                    v-model="item.cost_contrib"
+                  />
+                </div>
               </div>
             </div>
             <div class="col-12">
@@ -411,8 +492,8 @@
             if (resp.data.status) {
               window.ToasterAlert("success", "Request submited");
               window.setTimeout(() => {
-                window.location.href("/items");
-              }, 1500);
+                window.location.href = "/items";
+              }, 1000);
             }
           })
           .catch(() => {
@@ -427,3 +508,11 @@
     },
   };
 </script>
+<style scoped>
+  .input-group-text {
+    font-size: 13px;
+  }
+  input {
+    border-left: 0;
+  }
+</style>

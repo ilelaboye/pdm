@@ -52,34 +52,51 @@
             <div class="col-sm-4" v-if="item.p1 != -1">
               <div class="form-group">
                 <label for="" class="fs-13">&lt;50 bobb. 50%</label>
-                <input
-                  disabled
-                  type="number"
-                  class="form-control"
-                  v-model="item.p1"
-                />
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    >{{ item.item.p1 }} ->
+                  </span>
+                  <input
+                    disabled
+                    type="number"
+                    class="form-control"
+                    v-model="item.p1"
+                  />
+                </div>
               </div>
             </div>
             <div class="col-sm-4" v-if="item.p2 != -1">
               <div class="form-group">
                 <label for="" class="fs-13">&lt;99 bobb. 25.0%</label>
-                <input
-                  disabled
-                  type="number"
-                  class="form-control"
-                  v-model="item.p2"
-                />
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    >{{ item.item.p2 }} -></span
+                  >
+
+                  <input
+                    disabled
+                    type="number"
+                    class="form-control"
+                    v-model="item.p2"
+                  />
+                </div>
               </div>
             </div>
             <div class="col-sm-4" v-if="item.p3 != -1">
               <div class="form-group">
                 <label for="" class="fs-13">&gt;100 bobb. 0.00%</label>
-                <input
-                  disabled
-                  type="number"
-                  class="form-control"
-                  v-model="item.p3"
-                />
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    >{{ item.item.p3 }} -></span
+                  >
+
+                  <input
+                    disabled
+                    type="number"
+                    class="form-control"
+                    v-model="item.p3"
+                  />
+                </div>
               </div>
             </div>
             <div class="col-12">
@@ -90,101 +107,157 @@
             <div class="col-sm-4" v-if="item.p4 != -1">
               <div class="form-group">
                 <label for="" class="fs-13">&lt;50 bobb. 50%</label>
-                <input
-                  disabled
-                  type="number"
-                  class="form-control"
-                  v-model="item.p4"
-                />
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    >{{ item.item.p4 }} -></span
+                  >
+
+                  <input
+                    disabled
+                    type="number"
+                    class="form-control"
+                    v-model="item.p4"
+                  />
+                </div>
               </div>
             </div>
             <div class="col-sm-4" v-if="item.p5 != -1">
               <div class="form-group">
                 <label for="" class="fs-13">&lt;50 bobb. 50%</label>
-                <input
-                  disabled
-                  type="number"
-                  class="form-control"
-                  v-model="item.p5"
-                />
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    >{{ item.item.p5 }} ->
+                  </span>
+
+                  <input
+                    disabled
+                    type="number"
+                    class="form-control"
+                    v-model="item.p5"
+                  />
+                </div>
               </div>
             </div>
             <div class="col-sm-4" v-if="item.p6 != -1">
               <div class="form-group">
                 <label for="" class="fs-13">&gt;50 bobb. 50%</label>
-                <input
-                  disabled
-                  type="number"
-                  class="form-control"
-                  v-model="item.p6"
-                />
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    >{{ item.item.p6 }} -></span
+                  >
+
+                  <input
+                    disabled
+                    type="number"
+                    class="form-control"
+                    v-model="item.p6"
+                  />
+                </div>
               </div>
             </div>
 
             <div class="col-sm-4" v-if="item.fca_baseprice != -1">
               <div class="form-group">
                 <label for="" class="fs-13">USD/100m² FCA baseprice</label>
-                <input
-                  disabled
-                  type="number"
-                  class="form-control"
-                  v-model="item.fca_baseprice"
-                />
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    >{{ item.item.fca_baseprice }} -></span
+                  >
+
+                  <input
+                    disabled
+                    type="number"
+                    class="form-control"
+                    v-model="item.fca_baseprice"
+                  />
+                </div>
               </div>
             </div>
             <div class="col-sm-4" v-if="item.bob_me != -1">
               <div class="form-group">
                 <label for="" class="fs-13">USD/100m² + BOB - Me</label>
-                <input
-                  disabled
-                  type="number"
-                  class="form-control"
-                  v-model="item.bob_me"
-                />
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    >{{ item.item.bob_me }}-></span
+                  >
+
+                  <input
+                    disabled
+                    type="number"
+                    class="form-control"
+                    v-model="item.bob_me"
+                  />
+                </div>
               </div>
             </div>
             <div class="col-sm-4" v-if="item.perfo != -1">
               <div class="form-group">
                 <label for="" class="fs-13">USD/1000 m Perfo</label>
-                <input
-                  disabled
-                  type="number"
-                  class="form-control"
-                  v-model="item.perfo"
-                />
+
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    >{{ item.item.perfo }} -></span
+                  >
+
+                  <input
+                    disabled
+                    type="number"
+                    class="form-control"
+                    v-model="item.perfo"
+                  />
+                </div>
               </div>
             </div>
             <div class="col-sm-4" v-if="item.bob_fca != -1">
               <div class="form-group">
                 <label for="" class="fs-13">Basis/Bob FCA</label>
-                <input
-                  disabled
-                  type="number"
-                  class="form-control"
-                  v-model="item.bob_fca"
-                />
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    >{{ item.item.bob_fca }} ->
+                  </span>
+
+                  <input
+                    disabled
+                    type="number"
+                    class="form-control"
+                    v-model="item.bob_fca"
+                  />
+                </div>
               </div>
             </div>
             <div class="col-sm-4" v-if="item.print_bobb_price != -1">
               <div class="form-group">
                 <label for="" class="fs-13">Print price/bobb</label>
-                <input
-                  disabled
-                  type="number"
-                  class="form-control"
-                  v-model="item.print_bobb_price"
-                />
+
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    >{{ item.item.print_bobb_price }} ->
+                  </span>
+
+                  <input
+                    disabled
+                    type="number"
+                    class="form-control"
+                    v-model="item.print_bobb_price"
+                  />
+                </div>
               </div>
             </div>
             <div class="col-sm-4" v-if="item.perfo_price_bobb != -1">
               <div class="form-group">
                 <label for="" class="fs-13">Perfo price/bobb.</label>
-                <input
-                  disabled
-                  type="number"
-                  class="form-control"
-                  v-model="item.perfo_price_bobb"
-                />
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    >{{ item.item.perfo_price_bobb }} -></span
+                  >
+
+                  <input
+                    disabled
+                    type="number"
+                    class="form-control"
+                    v-model="item.perfo_price_bobb"
+                  />
+                </div>
               </div>
             </div>
             <div class="col-sm-4" v-if="item.print_bobb_price_ext != -1">
@@ -192,12 +265,18 @@
                 <label for="" class="fs-13"
                   >Print price/bobb. incl. payment extension</label
                 >
-                <input
-                  disabled
-                  type="number"
-                  class="form-control"
-                  v-model="item.print_bobb_price_ext"
-                />
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    >{{ item.item.print_bobb_price_ext }} ->
+                  </span>
+
+                  <input
+                    disabled
+                    type="number"
+                    class="form-control"
+                    v-model="item.print_bobb_price_ext"
+                  />
+                </div>
               </div>
             </div>
             <div class="col-sm-4" v-if="item.perfo_bobb_price_ext != -1">
@@ -205,23 +284,34 @@
                 <label for="" class="fs-13"
                   >Perfo price/bobb. incl. payment extension</label
                 >
-                <input
-                  disabled
-                  type="number"
-                  class="form-control"
-                  v-model="item.perfo_bobb_price_ext"
-                />
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    >{{ item.item.perfo_bobb_price_ext }} ->
+                  </span>
+
+                  <input
+                    disabled
+                    type="number"
+                    class="form-control"
+                    v-model="item.perfo_bobb_price_ext"
+                  />
+                </div>
               </div>
             </div>
             <div class="col-sm-4" v-if="item.freight_price != -1">
               <div class="form-group">
                 <label for="" class="fs-13">Freight price/bobb</label>
-                <input
-                  disabled
-                  type="number"
-                  class="form-control"
-                  v-model="item.freight_price"
-                />
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    >{{ item.item.freight_price }} ->
+                  </span>
+                  <input
+                    disabled
+                    type="number"
+                    class="form-control"
+                    v-model="item.freight_price"
+                  />
+                </div>
               </div>
             </div>
             <div class="col-sm-4" v-if="item.cost_contrib != -1">
@@ -229,12 +319,17 @@
                 <label for="" class="fs-13"
                   >Cost Contribution 1st and 2nd round</label
                 >
-                <input
-                  disabled
-                  type="number"
-                  class="form-control"
-                  v-model="item.cost_contrib"
-                />
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    >{{ item.item.cost_contrib }} -></span
+                  >
+                  <input
+                    disabled
+                    type="number"
+                    class="form-control"
+                    v-model="item.cost_contrib"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -242,7 +337,8 @@
             class=""
             v-if="
               $store.state.user.user.username != 'vendor1' &&
-              item.status == 'pending'
+              item.status == 'pending' &&
+              item.approver_id == $store.state.user.user.id
             "
           >
             <button
@@ -328,3 +424,12 @@
     },
   };
 </script>
+
+<style scoped>
+  input {
+    border-left: 0;
+  }
+  .input-group-text {
+    font-size: 13px;
+  }
+</style>
