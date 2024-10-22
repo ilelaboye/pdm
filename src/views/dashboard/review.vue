@@ -155,7 +155,9 @@
                 </div>
               </div>
             </div>
-
+            <div class="col-12">
+              <p class="fs-13 mb-1">Others</p>
+            </div>
             <div class="col-sm-4" v-if="item.fca_baseprice != -1">
               <div class="form-group">
                 <label for="" class="fs-13">USD/100m² FCA baseprice</label>
