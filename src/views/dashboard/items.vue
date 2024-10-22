@@ -25,7 +25,7 @@
                   <td>{{ item.tann_descp }}</td>
                   <td>{{ item.opco }}</td>
                   <td>
-                    {{ formatDateTime(item.updated_at) }}
+                    {{ formatDateTime(item.last_updated_at) }}
                   </td>
                   <td>
                     <div class="d-flex align-items-center">
