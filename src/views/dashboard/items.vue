@@ -1,8 +1,14 @@
 <template>
   <div class="orders px-2 py-4 mt-2" v-if="loaded">
     <div class="d-flex justify-content-between align-items-center">
-      <div class="main-title">
+      <div class="main-title d-flex justify-content-between">
         <h6 class="mb-0">Materials</h6>
+        <button
+          class="btn btn-primary fs-13"
+          v-if="$store.state.user.user.username == 'vendor1'"
+        >
+          Upload chnages
+        </button>
       </div>
     </div>
     <div class="orders-body mt-2">
