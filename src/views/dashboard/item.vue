@@ -224,7 +224,7 @@
                     ></i>
                   </span>
                   <div class="vertical-timeline-element-content bounce-in">
-                    <h4 class="timeline-title">Vendor 1</h4>
+                    <h4 class="timeline-title">Supplier1</h4>
                     <p>
                       <!-- {{ item.item.currency }} {{ formatPrice(item.new_price) }} -->
                       {{ item.approver.username }}
