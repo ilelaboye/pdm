@@ -318,7 +318,7 @@
           .dispatch("get", `admin/pdm/get-request/${this.$route.params.id}`)
           .then((resp) => {
             this.$store.commit("setLoader", false);
-            this.loaded = true;
+
             this.item = resp.data.data;
             this.price = { ...this.item };
             console.log(this.price);
@@ -335,10 +335,7 @@
             this.$store.commit("setLoader", false);
             this.loaded = true;
             this.approvers = resp.data.data;
-            this.approvers.splice(
-              this.approvers.findIndex((item) => item.username == "supplier1"),
-              1
-            );
+
             console.log(this.$store.state.user.user.id);
           })
           .catch(() => {
@@ -504,9 +501,9 @@
           });
       },
     },
-    created() {
-      this.getItem();
-      this.getApprovers();
+    async created() {
+      await this.getItem();
+      await this.getApprovers();
     },
   };
 </script>
