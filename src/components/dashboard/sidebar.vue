@@ -21,6 +21,10 @@
         class="list-group-item list-group-item-action list-group-item-light px-3"
         :to="{ name: 'requests' }"
         :class="$route.name == 'requests' ? 'active' : ''"
+        v-if="
+          user.user.username == 'category_manager1' ||
+          user.user.username == 'supplier1'
+        "
       >
         <i class="fa fa-table"></i>
         <span>Requests</span>
@@ -30,7 +34,7 @@
         class="list-group-item list-group-item-action list-group-item-light px-3"
         :to="{ name: 'pending-requests' }"
         :class="$route.name == 'pending-requests' ? 'active' : ''"
-        v-if="user.user.username != 'vendor1'"
+        v-if="user.user.username == 'category_manager1'"
       >
         <i class="fa fa-table"></i>
         <span>Pending Requests</span>
@@ -39,7 +43,7 @@
         class="list-group-item list-group-item-action list-group-item-light px-3"
         :to="{ name: 'vendors' }"
         :class="$route.name == 'vendors' ? 'active' : ''"
-        v-if="user.user.username != 'vendor1'"
+        v-if="user.user.username == 'category_manager1'"
       >
         <i class="fas fa-users"></i>
         <span>Suppliers</span>

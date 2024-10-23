@@ -54,7 +54,7 @@
                 <label for="" class="fs-13">&lt;50 bobb. 50%</label>
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="basic-addon1"
-                    >{{ item.item.p1 }} ->
+                    >{{ old_prices.p1 }} ->
                   </span>
                   <input
                     disabled
@@ -70,7 +70,7 @@
                 <label for="" class="fs-13">&lt;99 bobb. 25.0%</label>
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="basic-addon1"
-                    >{{ item.item.p2 }} -></span
+                    >{{ old_prices.p2 }} -></span
                   >
 
                   <input
@@ -87,7 +87,7 @@
                 <label for="" class="fs-13">&gt;100 bobb. 0.00%</label>
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="basic-addon1"
-                    >{{ item.item.p3 }} -></span
+                    >{{ old_prices.p3 }} -></span
                   >
 
                   <input
@@ -109,7 +109,7 @@
                 <label for="" class="fs-13">&lt;50 bobb. 50%</label>
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="basic-addon1"
-                    >{{ item.item.p4 }} -></span
+                    >{{ old_prices.p4 }} -></span
                   >
 
                   <input
@@ -126,7 +126,7 @@
                 <label for="" class="fs-13">&lt;50 bobb. 50%</label>
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="basic-addon1"
-                    >{{ item.item.p5 }} ->
+                    >{{ old_prices.p5 }} ->
                   </span>
 
                   <input
@@ -143,7 +143,7 @@
                 <label for="" class="fs-13">&gt;50 bobb. 50%</label>
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="basic-addon1"
-                    >{{ item.item.p6 }} -></span
+                    >{{ old_prices.p6 }} -></span
                   >
 
                   <input
@@ -163,7 +163,7 @@
                 <label for="" class="fs-13">USD/100m² FCA baseprice</label>
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="basic-addon1"
-                    >{{ item.item.fca_baseprice }} -></span
+                    >{{ old_prices.fca_baseprice }} -></span
                   >
 
                   <input
@@ -180,7 +180,7 @@
                 <label for="" class="fs-13">USD/100m² + BOB - Me</label>
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="basic-addon1"
-                    >{{ item.item.bob_me }}-></span
+                    >{{ old_prices.bob_me }}-></span
                   >
 
                   <input
@@ -198,7 +198,7 @@
 
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="basic-addon1"
-                    >{{ item.item.perfo }} -></span
+                    >{{ old_prices.perfo }} -></span
                   >
 
                   <input
@@ -215,7 +215,7 @@
                 <label for="" class="fs-13">Basis/Bob FCA</label>
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="basic-addon1"
-                    >{{ item.item.bob_fca }} ->
+                    >{{ old_prices.bob_fca }} ->
                   </span>
 
                   <input
@@ -233,7 +233,7 @@
 
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="basic-addon1"
-                    >{{ item.item.print_bobb_price }} ->
+                    >{{ old_prices.print_bobb_price }} ->
                   </span>
 
                   <input
@@ -250,7 +250,7 @@
                 <label for="" class="fs-13">Perfo price/bobb.</label>
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="basic-addon1"
-                    >{{ item.item.perfo_price_bobb }} -></span
+                    >{{ old_prices.perfo_price_bobb }} -></span
                   >
 
                   <input
@@ -269,7 +269,7 @@
                 >
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="basic-addon1"
-                    >{{ item.item.print_bobb_price_ext }} ->
+                    >{{ old_prices.print_bobb_price_ext }} ->
                   </span>
 
                   <input
@@ -288,7 +288,7 @@
                 >
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="basic-addon1"
-                    >{{ item.item.perfo_bobb_price_ext }} ->
+                    >{{ old_prices.perfo_bobb_price_ext }} ->
                   </span>
 
                   <input
@@ -305,7 +305,7 @@
                 <label for="" class="fs-13">Freight price/bobb</label>
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="basic-addon1"
-                    >{{ item.item.freight_price }} ->
+                    >{{ old_prices.freight_price }} ->
                   </span>
                   <input
                     disabled
@@ -323,7 +323,7 @@
                 >
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="basic-addon1"
-                    >{{ item.item.cost_contrib }} -></span
+                    >{{ old_prices.cost_contrib }} -></span
                   >
                   <input
                     disabled
@@ -338,7 +338,7 @@
           <div
             class=""
             v-if="
-              $store.state.user.user.username != 'vendor1' &&
+              $store.state.user.user.username == 'category_manager1' &&
               item.status == 'pending' &&
               item.approver_id == $store.state.user.user.id
             "
@@ -374,6 +374,7 @@
         approvers: [],
         approver: null,
         price: {},
+        old_prices: {},
       };
     },
 
@@ -415,6 +416,8 @@
             this.item = resp.data.data;
             this.price = { ...this.item };
             console.log(this.price);
+            console.log(JSON.parse(this.price.old_prices));
+            this.old_prices = JSON.parse(this.price.old_prices);
           })
           .catch(() => {
             this.$store.commit("setLoader", false);

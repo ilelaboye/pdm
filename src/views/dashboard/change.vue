@@ -336,7 +336,7 @@
             this.loaded = true;
             this.approvers = resp.data.data;
             this.approvers.splice(
-              this.approvers.findIndex((item) => item.username == "vendor1"),
+              this.approvers.findIndex((item) => item.username == "supplier1"),
               1
             );
             console.log(this.$store.state.user.user.id);

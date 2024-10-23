@@ -5,7 +5,7 @@
         <h6 class="mb-0">Materials</h6>
         <button
           class="btn btn-primary fs-13"
-          v-if="$store.state.user.user.username == 'vendor1'"
+          v-if="$store.state.user.user.username == 'supplier1'"
         >
           Upload changes
         </button>
@@ -43,7 +43,7 @@
                       ></router-link>
                       <a
                         :href="`item/${item.id}/change-price`"
-                        v-if="$store.state.user.user.username == 'vendor1'"
+                        v-if="$store.state.user.user.username == 'supplier1'"
                         class="btn btn-primary ms-1 fs-10"
                       >
                         Change Price
@@ -169,7 +169,7 @@
             this.loaded = true;
             this.approvers = resp.data.data;
             this.approvers.splice(
-              this.approvers.findIndex((item) => item.username == "vendor1"),
+              this.approvers.findIndex((item) => item.username == "supplier1"),
               1
             );
             console.log(this.approvers);

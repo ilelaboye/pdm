@@ -19,9 +19,9 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>Vendor1</td>
-                  <td>vendor1@mail.com</td>
-                  <td>Vendor1</td>
+                  <td>supplier1</td>
+                  <td>supplier1@mail.com</td>
+                  <td>supplier1</td>
                 </tr>
               </tbody>
             </table>
