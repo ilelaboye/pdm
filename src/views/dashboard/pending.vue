@@ -12,7 +12,8 @@
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>Material</th>
+                  <th>TANN code</th>
+                  <th>TANN description</th>
                   <th>Approver</th>
                   <th>Supplier</th>
                   <th>Date</th>
@@ -22,6 +23,7 @@
               <tbody v-if="requests.length > 0">
                 <tr v-for="(item, index) in requests" :key="index">
                   <td>{{ item.item.tann_code }}</td>
+                  <td>{{ item.item.tann_descp }}</td>
 
                   <td>
                     {{ item.approver.username }}

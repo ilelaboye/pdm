@@ -61,19 +61,19 @@
               <div class="col-sm-4">
                 <b class="fs-13">&lt;50 bobb. 50%</b>
                 <p class="fs-12">
-                  {{ item.p1 }} <i class="fas fa-arrow-up"></i>
+                  {{ item.p1 }} <i class="fas fa-arrow-up text-danger"></i>
                 </p>
               </div>
               <div class="col-sm-4">
                 <b class="fs-13">&lt;99 bobb. 25.0%</b>
                 <p class="fs-12">
-                  {{ item.p2 }} <i class="fas fa-arrow-up"></i>
+                  {{ item.p2 }} <i class="fas fa-arrow-down text-success"></i>
                 </p>
               </div>
               <div class="col-sm-4">
                 <b class="fs-13">&gt;100 bobb. 0.00% </b>
                 <p class="fs-12">
-                  {{ item.p3 }} <i class="fas fa-arrow-up"></i>
+                  {{ item.p3 }} <i class="fas fa-arrow-up text-danger"></i>
                 </p>
               </div>
             </div>
@@ -85,19 +85,19 @@
               <div class="col-sm-4">
                 <b class="fs-13">&lt;50 bobb. 50%</b>
                 <p class="fs-12">
-                  {{ item.p4 }} <i class="fas fa-arrow-up"></i>
+                  {{ item.p4 }} <i class="fas fa-arrow-up text-danger"></i>
                 </p>
               </div>
               <div class="col-sm-4">
                 <b class="fs-13">&lt;99 bobb. 25.0%</b>
                 <p class="fs-12">
-                  {{ item.p5 }}<i class="fas fa-arrow-up"></i>
+                  {{ item.p5 }}<i class="fas fa-arrow-down text-success"></i>
                 </p>
               </div>
               <div class="col-sm-4">
                 <b class="fs-13">&gt;100 bobb. 0.00%</b>
                 <p class="fs-12">
-                  {{ item.p6 }}<i class="fas fa-arrow-up"></i>
+                  {{ item.p6 }}<i class="fas fa-arrow-down text-success"></i>
                 </p>
               </div>
             </div>
@@ -106,23 +106,34 @@
 
         <div class="card mt-2">
           <div class="card-body">
-            <p class="mb-1">Other Attribute</p>
+            <p class="mb-1">Other Attributes</p>
             <div class="row">
               <div class="col-sm-4">
                 <b class="fs-13">USD/100m² FCA baseprice</b>
-                <p class="fs-12">{{ item.fca_baseprice }}</p>
+                <p class="fs-12">
+                  {{ item.fca_baseprice }}
+                  <i class="fas fa-arrow-down text-success"></i>
+                </p>
               </div>
               <div class="col-sm-4">
                 <b class="fs-13">USD/100m² + BOB - Me</b>
-                <p class="fs-12">{{ item.bob_me }}</p>
+                <p class="fs-12">
+                  {{ item.bob_me }} <i class="fas fa-arrow-up text-danger"></i>
+                </p>
               </div>
               <div class="col-sm-4">
                 <b class="fs-13">USD/1000 m Perfo</b>
-                <p class="fs-12">{{ item.perfo }}</p>
+                <p class="fs-12">
+                  {{ item.perfo }}
+                  <i class="fas fa-arrow-down text-success"></i>
+                </p>
               </div>
               <div class="col-sm-4">
                 <b class="fs-13">Basis/Bob FCA</b>
-                <p class="fs-12">{{ item.bob_fca }}</p>
+                <p class="fs-12">
+                  {{ item.bob_fca }}
+                  <i class="fas fa-arrow-down text-success"></i>
+                </p>
               </div>
               <div class="col-sm-4">
                 <b class="fs-13">CC</b>
@@ -139,27 +150,45 @@
               </div>
               <div class="col-sm-4">
                 <b class="fs-13">Print price/bobb.</b>
-                <p class="fs-12">{{ item.print_bobb_price }}</p>
+                <p class="fs-12">
+                  {{ item.print_bobb_price }}
+                  <i class="fas fa-arrow-down text-success"></i>
+                </p>
               </div>
               <div class="col-sm-4">
                 <b class="fs-13">Perfo price/bobb.</b>
-                <p class="fs-12">{{ item.perfo_price_bobb }}</p>
+                <p class="fs-12">
+                  {{ item.perfo_price_bobb }}
+                  <i class="fas fa-arrow-down text-success"></i>
+                </p>
               </div>
               <div class="col-sm-4">
                 <b class="fs-13">Print price/bobb. incl. payment extension</b>
-                <p class="fs-12">{{ item.print_bobb_price_ext }}</p>
+                <p class="fs-12">
+                  {{ item.print_bobb_price_ext }}
+                  <i class="fas fa-arrow-down text-success"></i>
+                </p>
               </div>
               <div class="col-sm-4">
                 <b class="fs-13">Perfo price/bobb. incl. payment extension</b>
-                <p class="fs-12">{{ item.perfo_bobb_price_ext }}</p>
+                <p class="fs-12">
+                  {{ item.perfo_bobb_price_ext }}
+                  <i class="fas fa-arrow-up text-danger"></i>
+                </p>
               </div>
               <div class="col-sm-4">
                 <b class="fs-13"> Freight price/bobb. </b>
-                <p class="fs-12">{{ item.freight_price }}</p>
+                <p class="fs-12">
+                  {{ item.freight_price }}
+                  <i class="fas fa-arrow-up text-danger"></i>
+                </p>
               </div>
               <div class="col-sm-4">
                 <b class="fs-13"> Cost Contribution 1st and 2nd round </b>
-                <p class="fs-12">{{ item.cost_contrib }}</p>
+                <p class="fs-12">
+                  {{ item.cost_contrib }}
+                  <i class="fas fa-arrow-down text-success"></i>
+                </p>
               </div>
             </div>
           </div>
