@@ -5,6 +5,8 @@
         <h6 class="mb-0">Materials</h6>
         <button
           class="btn btn-primary fs-13"
+          data-bs-toggle="modal"
+          data-bs-target="#uploadChanges"
           v-if="$store.state.user.user.username == 'supplier1'"
         >
           Upload changes
@@ -64,15 +66,15 @@
 
     <div
       class="modal fade"
-      id="changePrice"
+      id="uploadChanges"
       tabindex="-1"
-      aria-labelledby="changePriceLabel"
+      aria-labelledby="uploadChangesLabel"
       aria-hidden="true"
     >
       <div class="modal-dialog modal-dialog-centered modal-md">
         <div class="modal-content">
           <div class="modal-header">
-            <h6 class="modal-title" id="changePriceLabel">
+            <h6 class="modal-title" id="uploadChangesLabel">
               Change Price Request
             </h6>
             <button
@@ -85,16 +87,13 @@
           <div class="modal-body">
             <form action="">
               <div class="form-group">
-                <label class="f-13">Amount</label>
-                <div class="input-group mb-3">
-                  <span class="input-group-text" id="basic-addon1">{{
-                    selectedItem.currency
-                  }}</span>
+                <label class="f-13">Attachment</label>
+                <div class="form-group">
                   <input
-                    type="number"
+                    type="file"
                     class="form-control"
-                    placeholder="Price"
-                    v-model="selectedItem.price"
+                    accept=".xlsx, .xls"
+                    @change="onFileChange"
                   />
                 </div>
               </div>
@@ -128,6 +127,7 @@
 
 <script>
   import NoData from "@/components/dashboard/noData.vue";
+  import * as XLSX from "xlsx";
   export default {
     components: { NoData },
 
@@ -140,10 +140,208 @@
         selectedItem: {},
         approvers: [],
         approver: null,
+        excelData: [],
+        formData: [],
       };
     },
 
     methods: {
+      async onFileChange(event) {
+        const file = event.target.files[0];
+        if (file) {
+          // Read the file as a binary string
+          const data = await file.arrayBuffer();
+          const workbook = XLSX.read(data, { type: "array" });
+
+          // Assuming you want the first sheet's data
+          const sheetName = workbook.SheetNames[0];
+          const sheet = workbook.Sheets[sheetName];
+
+          // Convert sheet data to JSON format
+          this.excelData = XLSX.utils.sheet_to_json(sheet, { header: 0 });
+          // console.log(this.excelData);
+
+          for (const data of this.excelData) {
+            var rd = {
+              tann_code: data["TANN code"],
+              p1: `${data["FOB price per Bob. in USD according to order quantity <50 bobb. 50%"]}`.replace(
+                /\s/g,
+                ""
+              ),
+              p2: `${data["FOB price per Bob. in USD according to order quantity < 99 bobb. 25.0%"]}`.replace(
+                /\s/g,
+                ""
+              ),
+              p3: `${data["FOB price per Bob. in USD according to order quantity >100 bobb. 0.0%"]}`.replace(
+                /\s/g,
+                ""
+              ),
+              p4: `${data["DDP price per Bob. in USD according to order quantity: <50 bobb. 50%"]}`.replace(
+                /\s/g,
+                ""
+              ),
+              p5: `${data["DDP price per Bob. in USD according to order quantity: < 99 bobb. 25.0%"]}`.replace(
+                /\s/g,
+                ""
+              ),
+              p6: `${data["DDP price per Bob. in USD according to order quantity: >100 bobb. 0.0%"]}`.replace(
+                /\s/g,
+                ""
+              ),
+              fca_baseprice: `${data["USD/100m² FCA baseprice"]}`.replace(
+                /\s/g,
+                ""
+              ),
+              bob_me: `${data["USD/100m² + BOB - Me"]}`.replace(/\s/g, ""),
+              perfo: `${data["USD/1000 m Perfo"]}`.replace(/\s/g, ""),
+              bob_fca: `${data["Basis/Bob FCA"]}`.replace(/\s/g, ""),
+              print_bobb_price: `${data["print price/bobb."]}`.replace(
+                /\s/g,
+                ""
+              ),
+              perfo_price_bobb: `${data["perfo price/bobb."]}`.replace(
+                /\s/g,
+                ""
+              ),
+              print_bobb_price_ext:
+                `${data["print price/bobb. incl. payment extension"]}`.replace(
+                  /\s/g,
+                  ""
+                ),
+              perfo_bobb_price_ext:
+                `${data["perfo price/bobb. incl. payment extension"]}`.replace(
+                  /\s/g,
+                  ""
+                ),
+              freight_price: `${data["freight price/bobb."]}`.replace(
+                /\s/g,
+                ""
+              ),
+              cost_contrib:
+                `${data["Cost Contribution 1st and 2nd round"]}`.replace(
+                  /\s/g,
+                  ""
+                ),
+            };
+
+            if (isNaN(parseFloat(rd.bob_fca)) || rd.bob_fca.length < 1) {
+              this.formData = [];
+              window.ToasterAlert("error", "Invalid Basis/Bob FCA price");
+              return;
+            }
+            if (isNaN(parseFloat(rd.perfo)) || rd.perfo.length < 1) {
+              this.formData = [];
+              window.ToasterAlert("error", "Invalid USD/1000 m Perfo. price");
+              return;
+            }
+            if (isNaN(parseFloat(rd.bob_me)) || rd.bob_me.length < 1) {
+              this.formData = [];
+              window.ToasterAlert(
+                "error",
+                "Invalid USD/100m² + BOB - Me price"
+              );
+              return;
+            }
+            if (
+              isNaN(parseFloat(rd.fca_baseprice)) ||
+              rd.fca_baseprice.length < 1
+            ) {
+              this.formData = [];
+              window.ToasterAlert("error", "Invalid USD/100m² FCA baseprice");
+              return;
+            }
+            if (
+              isNaN(parseFloat(rd.cost_contrib)) ||
+              rd.cost_contrib.length < 1
+            ) {
+              this.formData = [];
+              window.ToasterAlert(
+                "error",
+                "Invalid cost contribution 1st and 2nd round price"
+              );
+              return;
+            }
+            if (
+              isNaN(parseFloat(rd.freight_price)) ||
+              rd.freight_price.length < 1
+            ) {
+              this.formData = [];
+              window.ToasterAlert("error", "Invalid freight price/bobb. price");
+              return;
+            }
+            if (
+              isNaN(parseFloat(rd.perfo_bobb_price_ext)) ||
+              rd.perfo_bobb_price_ext.length < 1
+            ) {
+              this.formData = [];
+              window.ToasterAlert(
+                "error",
+                "Invalid perfo price/bobb. incl. payment extension price"
+              );
+              return;
+            }
+            if (
+              isNaN(parseFloat(rd.print_bobb_price_ext)) ||
+              rd.print_bobb_price_ext.length < 1
+            ) {
+              this.formData = [];
+              window.ToasterAlert(
+                "error",
+                "Invalid print price/bobb. incl. payment extension price"
+              );
+              return;
+            }
+            if (
+              isNaN(parseFloat(rd.perfo_price_bobb)) ||
+              rd.perfo_price_bobb.length < 1
+            ) {
+              this.formData = [];
+              window.ToasterAlert("error", "Invalid perfo price/bobb. price");
+              return;
+            }
+            if (
+              isNaN(parseFloat(rd.print_bobb_price)) ||
+              rd.print_bobb_price.length < 1
+            ) {
+              this.formData = [];
+              window.ToasterAlert("error", "Invalid print price/bobb. price");
+              return;
+            }
+            if (isNaN(parseFloat(rd.p1)) || rd.p1.length < 1) {
+              this.formData = [];
+              window.ToasterAlert("error", "Invalid <50 bobb. 50% price");
+              return;
+            }
+            if (isNaN(parseFloat(rd.p2)) || rd.p2.length < 1) {
+              this.formData = [];
+              window.ToasterAlert("error", "Invalid <99 bobb. 25.0% price");
+              return;
+            }
+            if (isNaN(parseFloat(rd.p3)) || rd.p3.length < 1) {
+              this.formData = [];
+              window.ToasterAlert("error", "Invalid >100 bobb. 0.00% price");
+              return;
+            }
+            if (isNaN(parseFloat(rd.p4)) || rd.p4.length < 1) {
+              this.formData = [];
+              window.ToasterAlert("error", "Invalid <50 bobb. 50% price");
+              return;
+            }
+            if (isNaN(parseFloat(rd.p5)) || rd.p5.length < 1) {
+              this.formData = [];
+              window.ToasterAlert("error", "Invalid <50 bobb. 50% price");
+              return;
+            }
+            if (isNaN(parseFloat(rd.p6)) || rd.p6.length < 1) {
+              this.formData = [];
+              window.ToasterAlert("error", "Invalid >50 bobb. 50% price");
+              return;
+            }
+            this.formData.push(rd);
+          }
+          console.log("fd", this.formData);
+        }
+      },
       setItem(item) {
         this.selectedItem = item;
       },
@@ -168,22 +366,17 @@
             this.$store.commit("setLoader", false);
             this.loaded = true;
             this.approvers = resp.data.data;
-            this.approvers.splice(
-              this.approvers.findIndex((item) => item.username == "supplier1"),
-              1
-            );
+            // this.approvers.splice(
+            //   this.approvers.findIndex((item) => item.username == "supplier1"),
+            //   1
+            // );
             console.log(this.approvers);
-            console.log(this.$store.state.user.user.id);
           })
           .catch(() => {
             this.$store.commit("setLoader", false);
           });
       },
       submitRequest() {
-        if (this.selectedItem.price < 1) {
-          window.ToasterAlert("error", "Invalid price");
-          return;
-        }
         if (!this.approver || this.approver.length < 1) {
           window.ToasterAlert("error", "Approver is required");
           return;
@@ -192,17 +385,16 @@
         this.loading = true;
         this.$store
           .dispatch("post", {
-            endpoint: "admin/pdm/submit-update-request",
+            endpoint: "admin/pdm/submit-update-request-multiple",
             details: {
-              item: this.selectedItem.id,
-              price: this.selectedItem.price,
+              items: JSON.stringify(this.formData),
               approver: this.approver,
             },
           })
           .then((resp) => {
+            console.log(resp);
             this.$store.commit("setLoader", false);
             this.loading = false;
-            console.log(resp);
             if (resp.data.status) {
               window.ToasterAlert("success", "Request submited");
               window.setTimeout(() => {

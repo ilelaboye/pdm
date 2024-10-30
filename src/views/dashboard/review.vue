@@ -385,7 +385,7 @@
           .dispatch("post", {
             endpoint: "admin/pdm/approve-decline-request",
             details: {
-              item: this.$route.params.id,
+              item: [this.$route.params.id],
               action: action,
             },
           })
